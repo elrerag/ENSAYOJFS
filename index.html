@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<title>Ensayo de Certificación programa: Java Full Stack - Bellavista 🥋.</title>
+	</head>
+<body>
+<h1>Ensayo de Certificación programa: Java Full Stack - Bellavista 🥋.</h1>
+
+<blockquote>
+<p><strong>DISCLAIMER</strong>: El siguiente ensayo, es producto de un trabajo autodidacta e independiente, por lo que no representa un ensayo oficial que forme parte del programa. Cualquier similitud o diferencia que exista con el documento que será aplicado por la entidad certificadora, no implica responsabilidad alguna de su autor, ni de los superiores a cargo de la institución que representa dicho autor. La finalidad de esta aplicación no evaluada, es de carácter “práctica-diagnóstica”.</p>
+</blockquote>
+
+<p>Antes de comenzar:</p>
+
+<ul>
+	<li>Está permitido el uso de apuntes e internet.</li>
+	<li>No está permitido hacer preguntas que no tengan que ver con la redacción o no comprensión de lo que se pide.</li>
+	<li>No está permitida la comunicación con alguna compañera o compañero o alguna persona que podría prestar apoyo a la resolución de esta evaluación. </li>
+	<li>La actividad está formada por 5 preguntas de 25 puntos cada una. Estas se enmarcan en un contexto ficticio (aunque la oferta es real), donde serán aplicadas de acuerdo vaya avanzando en la historia.</li>
+	<li>Las preguntas dependientes son las siguientes:
+
+		<ul>
+			<li>Pregunta 2, depende de la pregunta 1.</li>
+			<li>Pregunta 5, depende de la pregunta 4.</li>
+		</ul></li>
+	<li>El entregable será un archivo(nombre-apellido-rut) comprimido adjunto en Slack(canal general), con los proyectos y consultas realizados en esta actividad.</li>
+</ul>
+
+<p>👨🏻‍🏫 &lt; Sin más preámbulo, les deseo el mayor de los éxitos y que la suerte o una probabilidad favorable los acompañe.</p>
+
+<h2>La oferta.</h2>
+
+<p>Terminado el curso, usted se encuentra haciendo su vida cotidiana, cuando de pronto le llega el siguiente enlace:</p>
+
+<p><a href="https://www.getonbrd.com/jobs/programacion/desarrollador-back-end-en-java-ee-6-agilesoft-spa-santiago">https://www.getonbrd.com/jobs/programacion/desarrollador-back-end-en-java-ee-6-agilesoft-spa-santiago</a></p>
+
+<p>Los requerimientos para la postulación son los siguientes:</p>
+
+<p><strong>Requerimientos del cargo</strong></p>
+
+<ul>
+	<li>Conocimientos de las siguientes tecnologías: Java 6+, Spring Boot, Java Empresarial</li>
+	<li>Construcción de APIs de negocio.</li>
+	<li>Implementación de lógica de negocio en <code>backend</code>.</li>
+	<li>Experiencia en versionamiento de código utilizando GIT.</li>
+	<li>Experiencia desarrollando micro servicios con bases de datos relacionales (Oracle 11g y 12c)</li>
+	<li>Desarrollo de test unitarios en junit.</li>
+	<li>Experiencia trabajando en entornos ágiles.</li>
+</ul>
+
+<p>Luego de ver que lo aprendido en el programa, cubre muy bien los requisitos solicitados por el anuncio, decide postular al cargo ofrecido.</p>
+
+<h2>La prueba técnica.</h2>
+
+<p>Luego de aprobar todas las evaluaciones de personalidad, finalmente llega el momento donde se encuentra en una reunión con el CTO de la compañía, el cual al escuchar sus experiencias y motivaciones, le hace entrega de la siguiente test:</p>
+
+<p><strong>Test de ingreso a la compañía. </strong></p>
+
+<p>Contexto del problema.</p>
+
+<ul>
+	<li>Un importante módulo del sistema núcleo, necesita la implementación de un cálculo de recargo, inversamente proporcional al total de la venta. Es decir que mientras más compre un cliente, menos recargo tendrá.</li>
+	<li>Adicionalmente, existen temporadas en el que el recargo es fijo, por lo que <strong>NO</strong> siempre tendremos esta variabilidad en el recargo.</li>
+	<li>Se necesita entonces, el desarrollo de una funcionalidad que tenga la libertad de realizar <strong>dos tipos de cálculos</strong>, que otorgue, la posibilidad de aplicar el idóneo, cuando corresponda.</li>
+	<li>Un calculo deberá siempre, dada una lista de precios, aplicar un 10% de recargo (por cada producto).</li>
+	<li>El cálculo especial, deberá aplicar los siguientes criterios de recargo (por cada producto):
+
+		<ul>
+			<li>Compras inferiores a 10000, tienen un recargo del 20%.</li>
+			<li>Compras inferiores a 50000, tienen un recargo del 10%.</li>
+			<li>Superiores o iguales a 50000, no tienen recargo.</li>
+		</ul></li>
+</ul>
+
+<hr />
+
+<h3><strong>PREGUNTA 1:</strong> Realizar un programa en Java que solucione esta problemática, siguiendo el siguiente esquema:</h3>
+
+<ul>
+	<li>interfaz: <code>ConRecargo</code>.</li>
+	<li>clase: <code>CalculaPrecios</code>.</li>
+	<li>clase: <code>CalculaPreciosEspecial</code>.</li>
+</ul>
+
+<figure><img src="DraggedImage.png"/></figure>
+
+<p>El método encargado de calcular el recargo, se aplicará a cada elemento de la lista entregada y luego retorna la lista con los datos modificados. <strong>El cálculo del total (<code>getTotal()</code>), es sobre los datos con el descuento ya aplicado.</strong> No confundir el cálculo total (inicial) de las compras para ver cuanto % descontamos, ese cálculo es sin el descuento. </p>
+
+<p>La forma de probar el funcionamiento de esta aplicación será mediante la generación de 10 números aleatorios entre 0 y 70000. En el <strong><code>main()</code></strong>, la salida de la aplicación debe ser como la siguiente:</p>
+
+<pre><code class="code-highlighted code-tex">Para los números aleatorios: [60522.0, 33828.0, 45102.0, 22383.0, 46669.0, 60644.0, 40979.0, 69059.0, 52081.0, 52108.0]
+---------------------
+Se generan los siguientes cálculos:
+---------------------
+Calculo normal, elementos con recargo aplicado: 
+[66574.2, 37210.8, 49612.2, 24621.3, 51335.9, 66708.4, 45076.9, 75964.9, 57289.1, 57318.8]
+se obtiene un total de:531712.5
+---------------------
+Calculo especial, elementos con recargo aplicado: 
+[60522.0, 33828.0, 45102.0, 22383.0, 46669.0, 60644.0, 40979.0, 69059.0, 52081.0, 52108.0]
+se obtiene un total de:483375.0</code></pre>
+
+<p>Es decir, lo probamos para cada caso.</p>
+
+<p>No importan los decimales, si lo desea, puede aplicar el siguiente método para redondear los decimales:</p>
+
+<pre><code class="code-highlighted code-java"><span class="syntax-all syntax-keyword">public</span> <span class="syntax-all syntax-keyword">static</span> <span class="syntax-all syntax-keyword">Double</span> round(<span class="syntax-all syntax-keyword">Double</span> val) {
+    <span class="syntax-all syntax-keyword">return</span> <span class="syntax-all syntax-keyword">new</span> <span class="syntax-all syntax-keyword">BigDecimal</span>(val<span class="syntax-all syntax-keyword">.</span>toString())<span class="syntax-all syntax-keyword">.</span>setScale(<span class="syntax-all syntax-constant">2</span>, <span class="syntax-all syntax-keyword">RoundingMode.</span><span class="syntax-all syntax-constant">HALF_UP</span>)<span class="syntax-all syntax-keyword">.</span>doubleValue();
+}</code></pre>
+
+<p>Considere además un apoyo para la generación de número aleatorios</p>
+
+<pre><code class="code-highlighted code-java"><span class="syntax-all syntax-keyword">Random</span> r <span class="syntax-all syntax-keyword">=</span> <span class="syntax-all syntax-keyword">new</span> <span class="syntax-all syntax-keyword">Random</span>();
+<span class="syntax-all syntax-keyword">List&lt;Double&gt;</span> precios <span class="syntax-all syntax-keyword">=</span> <span class="syntax-all syntax-keyword">new</span> <span class="syntax-all syntax-keyword">ArrayList&lt;&gt;</span>();
+<span class="syntax-all syntax-keyword">for</span>(<span class="syntax-all syntax-keyword">int</span> i <span class="syntax-all syntax-keyword">=</span> <span class="syntax-all syntax-constant">0</span>; i <span class="syntax-all syntax-keyword">&lt;</span> <span class="syntax-all syntax-constant">10</span>; i<span class="syntax-all syntax-keyword">++</span>)
+    precios<span class="syntax-all syntax-keyword">.</span>add((<span class="syntax-all syntax-keyword">double</span>) r<span class="syntax-all syntax-keyword">.</span>nextInt(<span class="syntax-all syntax-constant">70000</span>));`</code></pre>
+
+<hr />
+
+<h3><strong>PREGUNTA 2:</strong> Realizar las pruebas unitarias de al menos un caso de cada clase, es decir, cada clase tendría dos métodos de pruebas, uno para el total y el otro para el recargo por cada elemento.</h3>
+
+<p>Si su proyecto está realizado con <code>maven</code>, adjunto la dependencias de JUnit 5.</p>
+
+<pre><code class="code-highlighted code-xml">&lt;<span class="syntax-all syntax-tag">dependencies</span>&gt;
+
+    <span class="syntax-all syntax-comment">&lt;!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api --&gt;</span>
+    &lt;<span class="syntax-all syntax-tag">dependency</span>&gt;
+        &lt;<span class="syntax-all syntax-tag">groupId</span>&gt;org.junit.jupiter&lt;/<span class="syntax-all syntax-tag">groupId</span>&gt;
+        &lt;<span class="syntax-all syntax-tag">artifactId</span>&gt;junit-jupiter-api&lt;/<span class="syntax-all syntax-tag">artifactId</span>&gt;
+        &lt;<span class="syntax-all syntax-tag">version</span>&gt;5.6.0&lt;/<span class="syntax-all syntax-tag">version</span>&gt;
+        &lt;<span class="syntax-all syntax-tag">scope</span>&gt;test&lt;/<span class="syntax-all syntax-tag">scope</span>&gt;
+    &lt;/<span class="syntax-all syntax-tag">dependency</span>&gt;
+
+    <span class="syntax-all syntax-comment">&lt;!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine --&gt;</span>
+    &lt;<span class="syntax-all syntax-tag">dependency</span>&gt;
+        &lt;<span class="syntax-all syntax-tag">groupId</span>&gt;org.junit.jupiter&lt;/<span class="syntax-all syntax-tag">groupId</span>&gt;
+        &lt;<span class="syntax-all syntax-tag">artifactId</span>&gt;junit-jupiter-engine&lt;/<span class="syntax-all syntax-tag">artifactId</span>&gt;
+        &lt;<span class="syntax-all syntax-tag">version</span>&gt;5.6.0&lt;/<span class="syntax-all syntax-tag">version</span>&gt;
+        &lt;<span class="syntax-all syntax-tag">scope</span>&gt;test&lt;/<span class="syntax-all syntax-tag">scope</span>&gt;
+    &lt;/<span class="syntax-all syntax-tag">dependency</span>&gt;
+
+    <span class="syntax-all syntax-comment">&lt;!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-launcher --&gt;</span>
+    &lt;<span class="syntax-all syntax-tag">dependency</span>&gt;
+        &lt;<span class="syntax-all syntax-tag">groupId</span>&gt;org.junit.platform&lt;/<span class="syntax-all syntax-tag">groupId</span>&gt;
+        &lt;<span class="syntax-all syntax-tag">artifactId</span>&gt;junit-platform-launcher&lt;/<span class="syntax-all syntax-tag">artifactId</span>&gt;
+        &lt;<span class="syntax-all syntax-tag">version</span>&gt;1.6.0&lt;/<span class="syntax-all syntax-tag">version</span>&gt;
+        &lt;<span class="syntax-all syntax-tag">scope</span>&gt;test&lt;/<span class="syntax-all syntax-tag">scope</span>&gt;
+    &lt;/<span class="syntax-all syntax-tag">dependency</span>&gt;
+
+&lt;/<span class="syntax-all syntax-tag">dependencies</span>&gt;</code></pre>
+
+<p>Si este no es el caso, se adjunta enlace con la descarga de JUnit5. </p>
+
+<p><a href="https://jar-download.com/artifact-search/junit5">https://jar-download.com/artifact-search/junit5</a></p>
+
+<figure><img src="DraggedImage-1.png"/></figure>
+
+<p>La configuración, integración y correcto funcionamiento de JUnit, forma parte de la evaluación.</p>
+
+<h2>Bienvenido a bordo.</h2>
+
+<p>Superada la prueba técnica, usted ya es miembro de esta <code>start-up</code>, su primera responsabilidad es extraer información de la base de datos, basado en el siguiente modelo.</p>
+
+<ul>
+	<li>Estructura <a href="https://gist.github.com/elrerag/8d1c6051071dfef689b699bc961237ca" title="finalHREstructura.sql"> Acá </a></li>
+	<li>Datos <a href="https://gist.github.com/elrerag/369fc17bb4e43e5fcd6415b7202422ed" title="finalHRdatos.sql">Acá</a></li>
+</ul>
+
+<figure><img src="Captura%20de%20Pantalla%202020-08-07%20a%20la(s)%2018.08.39.png"/></figure>
+
+<hr />
+
+<h3><strong>PREGUNTA 3:</strong> Luego de cargar los datos a su base, usted deberá resolver las siguientes peticiones, mediante consultas a la base de datos de Oracle:</h3>
+
+<h4><strong>a) </strong>El gerente de nuevos proyectos, requiere un archivo con la información de los departamentos. Diseñe una consulta <code>SQL</code>, que obtenga todas las columnas de la tabla <code>departments</code>.</h4>
+
+<p>Resultado esperado:</p>
+
+<pre><code class="code-highlighted code-sql">DEPARTMENT_ID|DEPARTMENT_NAME     |MANAGER_ID|LOCATION_ID|
+<span class="syntax-all syntax-comment">-------------|--------------------|----------|-----------|
+</span>           <span class="syntax-all syntax-constant">10</span>|Administration      |       <span class="syntax-all syntax-constant">200</span>|       <span class="syntax-all syntax-constant">1700</span>|
+           <span class="syntax-all syntax-constant">20</span>|Marketing           |       <span class="syntax-all syntax-constant">201</span>|       <span class="syntax-all syntax-constant">1800</span>|
+           <span class="syntax-all syntax-constant">30</span>|Purchasing          |       <span class="syntax-all syntax-constant">114</span>|       <span class="syntax-all syntax-constant">1700</span>|
+           <span class="syntax-all syntax-constant">40</span>|Human Resources     |       <span class="syntax-all syntax-constant">203</span>|       <span class="syntax-all syntax-constant">2400</span>|
+... resultado truncado (total filas: <span class="syntax-all syntax-constant">27</span>)</code></pre>
+
+<h4><strong>b)</strong> La encargada de finanzas le ha solicitado información de los empleados que ganan mas de <code>8000</code> con los siguientes campos:</h4>
+
+<ul>
+	<li>nombre (<code>first_name</code>)</li>
+	<li>apellido (<code>last_name</code>)</li>
+	<li>Código de departamento.</li>
+	<li>Salario.</li>
+</ul>
+
+<p>Realice la consulta necesaria para la obtención de esta información.</p>
+
+<p>Adicionalmente se pide que los resultados estén organizados de mayor a menor.</p>
+
+<p>Resultado esperado:</p>
+
+<pre><code class="code-highlighted code-sql">FIRST_NAME|LAST_NAME |DEPARTMENT_ID|SALARY|
+<span class="syntax-all syntax-comment">----------|----------|-------------|------|
+</span>Steven    |King      |           <span class="syntax-all syntax-constant">90</span>| <span class="syntax-all syntax-constant">24000</span>|
+Neena     |Kochhar   |           <span class="syntax-all syntax-constant">90</span>| <span class="syntax-all syntax-constant">17000</span>|
+Lex       |De Haan   |           <span class="syntax-all syntax-constant">90</span>| <span class="syntax-all syntax-constant">17000</span>|
+John      |Russell   |           <span class="syntax-all syntax-constant">80</span>| <span class="syntax-all syntax-constant">14000</span>|
+Karen     |Partners  |           <span class="syntax-all syntax-constant">80</span>| <span class="syntax-all syntax-constant">13500</span>|
+Michael   |Hartstein |           <span class="syntax-all syntax-constant">20</span>| <span class="syntax-all syntax-constant">13000</span>|
+Nancy     |Greenberg |          <span class="syntax-all syntax-constant">100</span>| <span class="syntax-all syntax-constant">12008</span>|
+... resultado truncado (total filas: <span class="syntax-all syntax-constant">33</span>)</code></pre>
+
+<h4><strong>c)</strong> La empresa está siendo sometida a una evaluación interna, es tarea entonces del área de recursos humanos, realizar una revisión de su organigrama, por lo que nos pide un reporte con lo siguientes datos de cada empleado en la base de datos:</h4>
+
+<ul>
+	<li>nombre (<code>first_name</code>)</li>
+	<li>apellido (<code>last_name</code>)</li>
+	<li>Código de departamento.</li>
+	<li>Nombre del departamento.</li>
+</ul>
+
+<p>Realice la consulta necesaria para la obtención de esta información.</p>
+
+<p>Resultado esperado:</p>
+
+<pre><code class="code-highlighted code-sql">FIRST_NAME |LAST_NAME  |DEPARTMENT_ID|DEPARTMENT_NAME |
+<span class="syntax-all syntax-comment">-----------|-----------|-------------|----------------|
+</span>Jennifer   |Whalen     |           <span class="syntax-all syntax-constant">10</span>|Administration  |
+Michael    |Hartstein  |           <span class="syntax-all syntax-constant">20</span>|Marketing       |
+Pat        |Fay        |           <span class="syntax-all syntax-constant">20</span>|Marketing       |
+Den        |Raphaely   |           <span class="syntax-all syntax-constant">30</span>|Purchasing      |
+Alexander  |Khoo       |           <span class="syntax-all syntax-constant">30</span>|Purchasing      |
+Shelli     |Baida      |           <span class="syntax-all syntax-constant">30</span>|Purchasing      |
+Sigal      |Tobias     |           <span class="syntax-all syntax-constant">30</span>|Purchasing      |
+Guy        |Himuro     |           <span class="syntax-all syntax-constant">30</span>|Purchasing      |
+Karen      |Colmenares |           <span class="syntax-all syntax-constant">30</span>|Purchasing      |
+Susan      |Mavris     |           <span class="syntax-all syntax-constant">40</span>|Human Resources |
+... resultado truncado (total filas: <span class="syntax-all syntax-constant">106</span>)</code></pre>
+
+<h4><strong>d)</strong> La gerencia general, necesita información de la distribución de recursos de la empresa, es por ello que requiere saber, los empleados que existen en cada área, estas áreas identificadas por su código, ordenadas por cantidad de empleados de forma descendente.</h4>
+
+<p>Diseñe la consulta que responde a esta solicitud.</p>
+
+<p>Resultado esperado:</p>
+
+<pre><code class="code-highlighted code-sql">DEPARTMENT_ID|DEPARTMENT_NAME |TOTAL_EMPLEADOS|
+<span class="syntax-all syntax-comment">-------------|----------------|---------------|
+</span>           <span class="syntax-all syntax-constant">50</span>|Shipping        |           <span class="syntax-all syntax-constant">7090</span>|
+           <span class="syntax-all syntax-constant">80</span>|Sales           |           <span class="syntax-all syntax-constant">5492</span>|
+           <span class="syntax-all syntax-constant">30</span>|Purchasing      |            <span class="syntax-all syntax-constant">699</span>|
+          <span class="syntax-all syntax-constant">100</span>|Finance         |            <span class="syntax-all syntax-constant">663</span>|
+           <span class="syntax-all syntax-constant">60</span>|IT              |            <span class="syntax-all syntax-constant">525</span>|
+          <span class="syntax-all syntax-constant">110</span>|Accounting      |            <span class="syntax-all syntax-constant">411</span>|
+           <span class="syntax-all syntax-constant">20</span>|Marketing       |            <span class="syntax-all syntax-constant">403</span>|
+           <span class="syntax-all syntax-constant">90</span>|Executive       |            <span class="syntax-all syntax-constant">303</span>|
+           <span class="syntax-all syntax-constant">70</span>|Public Relations|            <span class="syntax-all syntax-constant">204</span>|
+           <span class="syntax-all syntax-constant">40</span>|Human Resources |            <span class="syntax-all syntax-constant">203</span>|
+           <span class="syntax-all syntax-constant">10</span>|Administration  |            <span class="syntax-all syntax-constant">200</span>|</code></pre>
+
+<h2>Primer proyecto.</h2>
+
+<p>Transcurrido los días, llegó la hora de asignarle el primer proyecto web. </p>
+
+<p><strong>Contexto del proyecto</strong>:</p>
+
+<p>Se está preparando un sistema que saldrá a la venta para la gestión de edificios. Entonces se decide que este proyecto se realizará con el apoyo de varios desarrolladores trabajando en conjunto.</p>
+
+<p>Se le asigna entonces, la tarea de desarrollar el módulo de gestión de arriendo del Quincho.</p>
+
+<p><strong>Requerimientos</strong></p>
+
+<p>Dado el prototipo de interfaz de alta fidelidad:</p>
+
+<figure><img src="DraggedImage-2.png"/></figure>
+
+<figure><img src="DraggedImage-3.png"/></figure>
+
+<figure><img src="DraggedImage-4.png"/></figure>
+
+<p>Se observa que el sistema debe tener la capacidad de:</p>
+
+<ul>
+	<li>Listar los detalles de los arriendos realizados en una tabla.</li>
+	<li>Llenar a partir de una base de datos, las listas de selección del formulario (estado y departamento)</li>
+	<li>Tener la capacidad de filtrado (todos los campos del formulario son requeridos).</li>
+</ul>
+
+<p>Ejemplo de filtrado</p>
+
+<figure><img src="DraggedImage-5.png"/></figure>
+
+<p>Resultado: Cumple con los criterios y está en el rango de fechas.</p>
+
+<figure><img src="DraggedImage-6.png"/></figure>
+
+<hr />
+
+<h3><strong>PREGUNTA 4:</strong> Diseñe una aplicación web con Spring-mvc que cumpla con los requerimientos expuestos.</h3>
+
+<p>Recomendaciones:</p>
+
+<ul>
+	<li>Respeto de las capas (servicios, repositorios o daos, entidades, controladores, etc…).</li>
+	<li>Limitarse a desarrollar solamente lo que se pide.</li>
+	<li>La base de datos no se genera de forma automática. La cargaremos con un <code>script</code>, para incluir los mismos datos del ejemplo.</li>
+</ul>
+
+<p>Apoyo:</p>
+
+<ul>
+	<li>Realizamos la carga de los datos mediante la inclusión de dos archivos en <code>src/main/resources/</code>.
+
+		<ul>
+			<li><a href="https://gist.github.com/elrerag/dbaaaefff6c3707d7f62a5ff1a0c0aac" title="schema.sql">schema.sql</a>: Contiene la estructura <code>DDL</code>, con este archivo, se crean las tablas. (<code>entities</code>). Enlace <a href="https://gist.github.com/elrerag/dbaaaefff6c3707d7f62a5ff1a0c0aac" title="schema.sql">acá</a>.</li>
+			<li><a href="https://gist.github.com/elrerag/9151a596075c6e85a1799b6f9a798b58" title="data.sql">data.sql</a>: Contiene los datos. Es decir los <code>inserts</code>, para todas las tablas. Enlace <a href="https://gist.github.com/elrerag/9151a596075c6e85a1799b6f9a798b58" title="data.sql">acá</a>.</li>
+		</ul></li>
+</ul>
+
+<figure><img src="DraggedImage-7.png"/></figure>
+
+<ul>
+	<li>Al incluir estos archivos, con estos nombres, Spring los detecta automáticamente y los carga. Solamente nos queda desactivar la generación automática de los datos en <code>application.properties</code>.</li>
+</ul>
+
+<pre><code class="code-highlighted code-&lt;&gt;">spring.mvc.view.prefix=/WEB-INF/
+spring.mvc.view.suffix=.jsp
+
+#spring.datasource.platform=h2
+
+spring.jpa.database-platform=cl.lherrera.configuracion.SQLiteDialect
+
+# CARGA MEDIANTE SCRIPT
+#spring.jpa.generate-ddl=true
+spring.datasource.initialization-mode=always
+spring.jpa.hibernate.ddl-auto=none
+
+spring.jpa.show-sql=true</code></pre>
+
+<ul>
+	<li><code>dependencias del pom</code></li>
+</ul>
+
+<pre><code class="code-highlighted code-&lt;&gt;">	&lt;dependencies&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+			&lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;
+		&lt;/dependency&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+			&lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+		&lt;/dependency&gt;
+
+		&lt;dependency&gt;
+			&lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+			&lt;artifactId&gt;lombok&lt;/artifactId&gt;
+			&lt;optional&gt;true&lt;/optional&gt;
+		&lt;/dependency&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+			&lt;artifactId&gt;spring-boot-starter-tomcat&lt;/artifactId&gt;
+			&lt;scope&gt;provided&lt;/scope&gt;
+		&lt;/dependency&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+			&lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+			&lt;scope&gt;test&lt;/scope&gt;
+		&lt;/dependency&gt;
+		
+		&lt;!-- DevsTools --&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+			&lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;
+			&lt;optional&gt;true&lt;/optional&gt;
+		&lt;/dependency&gt;
+		&lt;!-- DevsTools # --&gt;
+		
+		&lt;!-- SQLITE - SUPPORT --&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;org.xerial&lt;/groupId&gt;
+			&lt;artifactId&gt;sqlite-jdbc&lt;/artifactId&gt;
+		&lt;/dependency&gt;
+		&lt;!-- SQLITE - SUPPORT #--&gt;
+		
+		&lt;!-- SOPORTE ARCHIVOS JSP --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.apache.tomcat.embed&lt;/groupId&gt;
+            &lt;artifactId&gt;tomcat-embed-jasper&lt;/artifactId&gt;
+            &lt;scope&gt;provided&lt;/scope&gt;
+        &lt;/dependency&gt;
+        &lt;!-- SOPORTE ARCHIVOS JSP #--&gt;
+
+        &lt;!-- JSTL --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+            &lt;artifactId&gt;jstl&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+            &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;!-- JSTL #--&gt;
+		
+	&lt;/dependencies&gt;</code></pre>
+
+<ul>
+	<li>Considere el siguiente método abstracto en el repositorio del arreglo para el filtro.</li>
+</ul>
+
+<pre><code class="code-highlighted code-java">    <span class="syntax-all syntax-keyword">List&lt;ArriendoQuincho&gt;</span> findAllByFechaBetweenAndEstadoAndDepartamento(
+        <span class="syntax-all syntax-keyword">String</span> desde, 
+        <span class="syntax-all syntax-keyword">String</span> hasta, 
+        <span class="syntax-all syntax-keyword">Estado</span> estado,
+        <span class="syntax-all syntax-keyword">Departamento</span> departamento
+    );</code></pre>
+
+<ul>
+	<li>El campo fecha, es de Tipo <code>String</code> en la entidad. <code>Jpa, lo transforma a date_time en la base de datos. 
+		</code></li>
+	<li>Archivos útiles:
+
+		<ul>
+			<li><a href="https://gist.github.com/elrerag/40b0d8b2674647b7e7177f0b7aaabbc8" title="AppConfig.java">AppConfig.java</a></li>
+			<li><a href="https://gist.github.com/elrerag/285a6279ef2dbc9b95781c0ff61a7f35" title="SQLiteDialect.java">SQLiteDialect.java</a></li>
+			<li><a href="https://gist.github.com/elrerag/b4fe0efe59af1f9ee6b454a35682cdd6" title="database.properties">database.properties</a></li>
+			<li><a href="https://gist.github.com/elrerag/ed0eccd8788f0bde75e7d7f350933d8e" title="web.xml">web.xml</a></li>
+		</ul></li>
+</ul>
+
+<h2>Primer proyecto - primera mejora.</h2>
+
+<p>El desarrollo de la aplicación web ha sido todo un éxito, por lo tanto es momento de llevarla al siguiente nivel. Las funcionalidades de esta aplicación serán llevadas a dispositivos móviles. Por lo que hay que desarrollar un servicio <code>API-REST</code> que cumpla con los siguientes requerimientos:</p>
+
+<ul>
+	<li>Debe traer la lista de los arriendos.</li>
+	<li>Debe poder filtrar los arriendos, por los mismos criterios que el proyecto anterior.</li>
+</ul>
+
+<h3><strong>PREGUNTA 5:</strong> Diseñe un <code>RestController</code> que exponga estos dos servicios.</h3>
+
+<p>Resultados esperados:</p>
+
+<p>Servicio 1: Obtener todos los arriendos.</p>
+
+<p>Tipo de petición: <code>GET</code></p>
+
+<p>EndPonit: <code>http://localhost:8080/api/v1/arriendo-quincho</code></p>
+
+<p>Respuesta:</p>
+
+<pre><code class="code-highlighted code-json">[
+    {
+        <span class="syntax-all syntax-string">&quot;id&quot;</span>: <span class="syntax-all syntax-constant">1</span>,
+        <span class="syntax-all syntax-string">&quot;fecha&quot;</span>: <span class="syntax-all syntax-string">&quot;2020-01-01 00:00:00&quot;</span>,
+        <span class="syntax-all syntax-string">&quot;departamento&quot;</span>: {
+            <span class="syntax-all syntax-string">&quot;id&quot;</span>: <span class="syntax-all syntax-constant">1</span>,
+            <span class="syntax-all syntax-string">&quot;numero&quot;</span>: <span class="syntax-all syntax-constant">101</span>
+        },
+        <span class="syntax-all syntax-string">&quot;estado&quot;</span>: {
+            <span class="syntax-all syntax-string">&quot;id&quot;</span>: <span class="syntax-all syntax-constant">2</span>,
+            <span class="syntax-all syntax-string">&quot;descripcion&quot;</span>: <span class="syntax-all syntax-string">&quot;Finalizado&quot;</span>
+        }
+    },
+    {
+        <span class="syntax-all syntax-string">&quot;id&quot;</span>: <span class="syntax-all syntax-constant">2</span>,
+        <span class="syntax-all syntax-string">&quot;fecha&quot;</span>: <span class="syntax-all syntax-string">&quot;2020-01-13 00:00:00&quot;</span>,
+        <span class="syntax-all syntax-string">&quot;departamento&quot;</span>: {
+            <span class="syntax-all syntax-string">&quot;id&quot;</span>: <span class="syntax-all syntax-constant">1</span>,
+            <span class="syntax-all syntax-string">&quot;numero&quot;</span>: <span class="syntax-all syntax-constant">101</span>
+        },
+        <span class="syntax-all syntax-string">&quot;estado&quot;</span>: {
+            <span class="syntax-all syntax-string">&quot;id&quot;</span>: <span class="syntax-all syntax-constant">2</span>,
+            <span class="syntax-all syntax-string">&quot;descripcion&quot;</span>: <span class="syntax-all syntax-string">&quot;Finalizado&quot;</span>
+        }
+    },
+    {
+        <span class="syntax-all syntax-string">&quot;id&quot;</span>: <span class="syntax-all syntax-constant">3</span>,
+        <span class="syntax-all syntax-string">&quot;fecha&quot;</span>: <span class="syntax-all syntax-string">&quot;2020-02-15 00:00:00&quot;</span>,
+        <span class="syntax-all syntax-string">&quot;departamento&quot;</span>: {
+            <span class="syntax-all syntax-string">&quot;id&quot;</span>: <span class="syntax-all syntax-constant">2</span>,
+            <span class="syntax-all syntax-string">&quot;numero&quot;</span>: <span class="syntax-all syntax-constant">102</span>
+        },
+        <span class="syntax-all syntax-string">&quot;estado&quot;</span>: {
+            <span class="syntax-all syntax-string">&quot;id&quot;</span>: <span class="syntax-all syntax-constant">2</span>,
+            <span class="syntax-all syntax-string">&quot;descripcion&quot;</span>: <span class="syntax-all syntax-string">&quot;Finalizado&quot;</span>
+        }
+    },
+    {
+        <span class="syntax-all syntax-string">&quot;id&quot;</span>: <span class="syntax-all syntax-constant">4</span>,
+        <span class="syntax-all syntax-string">&quot;fecha&quot;</span>: <span class="syntax-all syntax-string">&quot;2020-02-20 00:00:00&quot;</span>,
+        <span class="syntax-all syntax-string">&quot;departamento&quot;</span>: {
+            <span class="syntax-all syntax-string">&quot;id&quot;</span>: <span class="syntax-all syntax-constant">2</span>,
+            <span class="syntax-all syntax-string">&quot;numero&quot;</span>: <span class="syntax-all syntax-constant">102</span>
+        },
+        <span class="syntax-all syntax-string">&quot;estado&quot;</span>: {
+            <span class="syntax-all syntax-string">&quot;id&quot;</span>: <span class="syntax-all syntax-constant">2</span>,
+            <span class="syntax-all syntax-string">&quot;descripcion&quot;</span>: <span class="syntax-all syntax-string">&quot;Finalizado&quot;</span>
+        }
+    },
+    {
+        <span class="syntax-all syntax-string">&quot;id&quot;</span>: <span class="syntax-all syntax-constant">5</span>,
+        <span class="syntax-all syntax-string">&quot;fecha&quot;</span>: <span class="syntax-all syntax-string">&quot;2020-03-03 00:00:00&quot;</span>,
+        <span class="syntax-all syntax-string">&quot;departamento&quot;</span>: {
+            <span class="syntax-all syntax-string">&quot;id&quot;</span>: <span class="syntax-all syntax-constant">3</span>,
+            <span class="syntax-all syntax-string">&quot;numero&quot;</span>: <span class="syntax-all syntax-constant">201</span>
+        },
+        <span class="syntax-all syntax-string">&quot;estado&quot;</span>: {
+            <span class="syntax-all syntax-string">&quot;id&quot;</span>: <span class="syntax-all syntax-constant">2</span>,
+            <span class="syntax-all syntax-string">&quot;descripcion&quot;</span>: <span class="syntax-all syntax-string">&quot;Finalizado&quot;</span>
+        }
+    },
+    {
+        <span class="syntax-all syntax-string">&quot;id&quot;</span>: <span class="syntax-all syntax-constant">6</span>,
+        <span class="syntax-all syntax-string">&quot;fecha&quot;</span>: <span class="syntax-all syntax-string">&quot;2020-03-07 00:00:00&quot;</span>,
+        <span class="syntax-all syntax-string">&quot;departamento&quot;</span>: {
+            <span class="syntax-all syntax-string">&quot;id&quot;</span>: <span class="syntax-all syntax-constant">3</span>,
+            <span class="syntax-all syntax-string">&quot;numero&quot;</span>: <span class="syntax-all syntax-constant">201</span>
+        },
+        <span class="syntax-all syntax-string">&quot;estado&quot;</span>: {
+            <span class="syntax-all syntax-string">&quot;id&quot;</span>: <span class="syntax-all syntax-constant">2</span>,
+            <span class="syntax-all syntax-string">&quot;descripcion&quot;</span>: <span class="syntax-all syntax-string">&quot;Finalizado&quot;</span>
+        }
+    },
+    {
+        <span class="syntax-all syntax-string">&quot;id&quot;</span>: <span class="syntax-all syntax-constant">7</span>,
+        <span class="syntax-all syntax-string">&quot;fecha&quot;</span>: <span class="syntax-all syntax-string">&quot;2020-04-01 00:00:00&quot;</span>,
+        <span class="syntax-all syntax-string">&quot;departamento&quot;</span>: {
+            <span class="syntax-all syntax-string">&quot;id&quot;</span>: <span class="syntax-all syntax-constant">4</span>,
+            <span class="syntax-all syntax-string">&quot;numero&quot;</span>: <span class="syntax-all syntax-constant">202</span>
+        },
+        <span class="syntax-all syntax-string">&quot;estado&quot;</span>: {
+            <span class="syntax-all syntax-string">&quot;id&quot;</span>: <span class="syntax-all syntax-constant">2</span>,
+            <span class="syntax-all syntax-string">&quot;descripcion&quot;</span>: <span class="syntax-all syntax-string">&quot;Finalizado&quot;</span>
+        }
+    },
+    {
+        <span class="syntax-all syntax-string">&quot;id&quot;</span>: <span class="syntax-all syntax-constant">8</span>,
+        <span class="syntax-all syntax-string">&quot;fecha&quot;</span>: <span class="syntax-all syntax-string">&quot;2020-05-23 00:00:00&quot;</span>,
+        <span class="syntax-all syntax-string">&quot;departamento&quot;</span>: {
+            <span class="syntax-all syntax-string">&quot;id&quot;</span>: <span class="syntax-all syntax-constant">4</span>,
+            <span class="syntax-all syntax-string">&quot;numero&quot;</span>: <span class="syntax-all syntax-constant">202</span>
+        },
+        <span class="syntax-all syntax-string">&quot;estado&quot;</span>: {
+            <span class="syntax-all syntax-string">&quot;id&quot;</span>: <span class="syntax-all syntax-constant">2</span>,
+            <span class="syntax-all syntax-string">&quot;descripcion&quot;</span>: <span class="syntax-all syntax-string">&quot;Finalizado&quot;</span>
+        }
+    },
+    {
+        <span class="syntax-all syntax-string">&quot;id&quot;</span>: <span class="syntax-all syntax-constant">9</span>,
+        <span class="syntax-all syntax-string">&quot;fecha&quot;</span>: <span class="syntax-all syntax-string">&quot;2020-04-15 00:00:00&quot;</span>,
+        <span class="syntax-all syntax-string">&quot;departamento&quot;</span>: {
+            <span class="syntax-all syntax-string">&quot;id&quot;</span>: <span class="syntax-all syntax-constant">5</span>,
+            <span class="syntax-all syntax-string">&quot;numero&quot;</span>: <span class="syntax-all syntax-constant">301</span>
+        },
+        <span class="syntax-all syntax-string">&quot;estado&quot;</span>: {
+            <span class="syntax-all syntax-string">&quot;id&quot;</span>: <span class="syntax-all syntax-constant">2</span>,
+            <span class="syntax-all syntax-string">&quot;descripcion&quot;</span>: <span class="syntax-all syntax-string">&quot;Finalizado&quot;</span>
+        }
+    },
+    {
+        <span class="syntax-all syntax-string">&quot;id&quot;</span>: <span class="syntax-all syntax-constant">10</span>,
+        <span class="syntax-all syntax-string">&quot;fecha&quot;</span>: <span class="syntax-all syntax-string">&quot;2020-08-11 00:00:00&quot;</span>,
+        <span class="syntax-all syntax-string">&quot;departamento&quot;</span>: {
+            <span class="syntax-all syntax-string">&quot;id&quot;</span>: <span class="syntax-all syntax-constant">5</span>,
+            <span class="syntax-all syntax-string">&quot;numero&quot;</span>: <span class="syntax-all syntax-constant">301</span>
+        },
+        <span class="syntax-all syntax-string">&quot;estado&quot;</span>: {
+            <span class="syntax-all syntax-string">&quot;id&quot;</span>: <span class="syntax-all syntax-constant">1</span>,
+            <span class="syntax-all syntax-string">&quot;descripcion&quot;</span>: <span class="syntax-all syntax-string">&quot;En curso&quot;</span>
+        }
+    }
+]</code></pre>
+
+<figure><img src="DraggedImage-8.png"/></figure>
+
+<p>Servicio 2: Obtener arriendos filtrados.</p>
+
+<p>Tipo de petición: <code>POST</code></p>
+
+<p>EndPonit: <code>http://localhost:8080/api/v1/arriendo-quincho </code></p>
+
+<p>Cuerpo:</p>
+
+<pre><code class="code-highlighted code-json">{
+	<span class="syntax-all syntax-string">&quot;estadoId&quot;</span>: <span class="syntax-all syntax-constant">2</span>,
+	<span class="syntax-all syntax-string">&quot;departamentoId&quot;</span>: <span class="syntax-all syntax-constant">3</span>,
+	<span class="syntax-all syntax-string">&quot;fechaDesde&quot;</span>: <span class="syntax-all syntax-string">&quot;2020-01-01&quot;</span>,
+	<span class="syntax-all syntax-string">&quot;fechaHasta&quot;</span>: <span class="syntax-all syntax-string">&quot;2020-08-09&quot;</span>
+}</code></pre>
+
+<p>Respuesta:</p>
+
+<pre><code class="code-highlighted code-json">[
+    {
+        <span class="syntax-all syntax-string">&quot;id&quot;</span>: <span class="syntax-all syntax-constant">5</span>,
+        <span class="syntax-all syntax-string">&quot;fecha&quot;</span>: <span class="syntax-all syntax-string">&quot;2020-03-03 00:00:00&quot;</span>,
+        <span class="syntax-all syntax-string">&quot;departamento&quot;</span>: {
+            <span class="syntax-all syntax-string">&quot;id&quot;</span>: <span class="syntax-all syntax-constant">3</span>,
+            <span class="syntax-all syntax-string">&quot;numero&quot;</span>: <span class="syntax-all syntax-constant">201</span>
+        },
+        <span class="syntax-all syntax-string">&quot;estado&quot;</span>: {
+            <span class="syntax-all syntax-string">&quot;id&quot;</span>: <span class="syntax-all syntax-constant">2</span>,
+            <span class="syntax-all syntax-string">&quot;descripcion&quot;</span>: <span class="syntax-all syntax-string">&quot;Finalizado&quot;</span>
+        }
+    },
+    {
+        <span class="syntax-all syntax-string">&quot;id&quot;</span>: <span class="syntax-all syntax-constant">6</span>,
+        <span class="syntax-all syntax-string">&quot;fecha&quot;</span>: <span class="syntax-all syntax-string">&quot;2020-03-07 00:00:00&quot;</span>,
+        <span class="syntax-all syntax-string">&quot;departamento&quot;</span>: {
+            <span class="syntax-all syntax-string">&quot;id&quot;</span>: <span class="syntax-all syntax-constant">3</span>,
+            <span class="syntax-all syntax-string">&quot;numero&quot;</span>: <span class="syntax-all syntax-constant">201</span>
+        },
+        <span class="syntax-all syntax-string">&quot;estado&quot;</span>: {
+            <span class="syntax-all syntax-string">&quot;id&quot;</span>: <span class="syntax-all syntax-constant">2</span>,
+            <span class="syntax-all syntax-string">&quot;descripcion&quot;</span>: <span class="syntax-all syntax-string">&quot;Finalizado&quot;</span>
+        }
+    }
+]</code></pre>
+
+<figure><img src="DraggedImage-9.png"/></figure>
+
+<p>Los campos relacionados (que tienen el <code>FetchType.LAZY</code>), para que sean correctamente relacionados por <code>JSON</code>, considere la siguiente anotación:</p>
+
+<pre><code class="code-highlighted code-java"><span class="syntax-all syntax-keyword">@JsonIgnoreProperties</span>({<span class="syntax-all syntax-string">&quot;hibernateLazyInitializer&quot;</span>, <span class="syntax-all syntax-string">&quot;handler&quot;</span>}) 
+<span class="syntax-all syntax-keyword">@ManyToOne</span>(<span class="syntax-all syntax-constant">fetch</span> <span class="syntax-all syntax-keyword">=</span> <span class="syntax-all syntax-keyword">FetchType.</span><span class="syntax-all syntax-constant">LAZY</span>)</code></pre>
+
+<p>Es necesario para el trabajo de relaciones con <code>Rest</code>, de otra forma, obtendremos una excepción.</p>
+
+<hr />
+
+<blockquote>
+<p>“I fear not the man who has practiced 10,000 kicks once, but i fear the man who has practiced one kick 10,000 times.” —Bruce Lee.</p>
+</blockquote>
+
+</body>
+</html>
+
